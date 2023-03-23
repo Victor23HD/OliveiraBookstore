@@ -1,4 +1,4 @@
-import Express  from "express";
+import Express from "express";
 
 const app = Express();
 
@@ -17,9 +17,26 @@ app.get('/',(req,res) => {
 app.get('/books',(req, res) => {
     res.status(200).json(books);
 });
+
+app.get('/books/:id', (req,res) => {
+    let i = findBook(req.params.id);
+    res.status(200).json(books[i]);
+});
+
 app.post('/books', (req,res) => {
     books.push(req.body);
     res.status(201).send("O livro foi cadastrado com sucesso!");
 });
+
+app.put('/books/:id', (req,res) => {
+    let i = findBook(req.params.id);
+    books[i].title = req.body.title;
+    res.status(200).json(books);
+});
+
+const findBook = (id) => 
+{
+    return books.findIndex(book => book.id == id);
+}
 
 export default app;
