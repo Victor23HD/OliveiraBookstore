@@ -34,6 +34,13 @@ app.put('/books/:id', (req,res) => {
     res.status(200).json(books);
 });
 
+app.delete('/books/:id', (req, res) => {
+    let i = findBook(req.params.id);
+    books.splice(i, 1);
+    res.status(200).send(`Livro ${i+1} excluido com sucesso!`);
+})
+
+
 const findBook = (id) => 
 {
     return books.findIndex(book => book.id == id);
