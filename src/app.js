@@ -1,6 +1,7 @@
 import Express from "express";
 import database from "./config/dbConnect.js";
 import books from "./models/Book.js";
+import routes from "./routes/index.js";
 
 database.on('error', console.log.bind(console, 'Error na conexão!'));
 database.once('open', () => {
@@ -11,19 +12,12 @@ const app = Express();
 
 app.use(Express.json());
 
+routes(app);
 
-app.get('/', (req, res) => {
-    res.status(200).send("Curso de NodeJs");
-});
-
-app.get('/books', async (req, res) => {
-    res.status(200).json(await books.find());
-});
-
-app.get('/books/:id', (req, res) => {
+/*app.get('/books/:id', (req, res) => {
     let i = findBook(req.params.id);
     res.status(200).json(books[i]);
-});
+});*/
 
 app.post('/books', (req, res) => {
     books.push(req.body);
