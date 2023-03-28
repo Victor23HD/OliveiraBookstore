@@ -1,20 +1,16 @@
 import books from "../models/Book.js";
 
-class BookController
-{
-    static listBooks = async(req, res) => 
-    {
+class BookController {
+
+    static listBooks = async (req, res) => {
         res.status(200).json(await books.find());
     }
 
-
-    //VOCÊ PAROU AQUIIIII
-    static registerBook = (req, res) => 
-    {
-        let aux = req.params.id;
-        let i = books.find(aux);
-        console.log(i);
-        res.status(200).json(books[i]);
+    static registerBook = async(req, res) => {
+        let book = new books(req.body);
+        let ret = await book.save();
+        res.status(200).send("Livro criado com sucesso!");
+        
     }
 }
 

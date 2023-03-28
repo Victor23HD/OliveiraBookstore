@@ -5,6 +5,6 @@ const bookRouter = Express.Router();
 
 bookRouter
     .get('/books', BookController.listBooks)
-    .get('/books/:id', BookController.registerBook);
+    .post('/books', BookController.registerBook);
 
 export default bookRouter;

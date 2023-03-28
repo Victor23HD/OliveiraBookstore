@@ -14,16 +14,6 @@ app.use(Express.json());
 
 routes(app);
 
-/*app.get('/books/:id', (req, res) => {
-    let i = findBook(req.params.id);
-    res.status(200).json(books[i]);
-});*/
-
-app.post('/books', (req, res) => {
-    books.push(req.body);
-    res.status(201).send("O livro foi cadastrado com sucesso!");
-});
-
 app.put('/books/:id', (req, res) => {
     let i = findBook(req.params.id);
     books[i].title = req.body.title;
