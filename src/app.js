@@ -14,12 +14,4 @@ app.use(Express.json());
 
 routes(app);
 
-app.delete('/books/:id', (req, res) => {
-    let i = findBook(req.params.id);
-    books.splice(i, 1);
-    res.status(200).send(`Livro ${i + 1} excluido com sucesso!`);
-})
-
-
-
 export default app;
