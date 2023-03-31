@@ -20,10 +20,16 @@ class BookController {
         res.status(200).send("Successfully updated book!");
     }
 
-    static deleteBook= async(req, res) => {
+    static deleteBook = async(req, res) => {
         const id = req.params.id;
         await books.findByIdAndDelete(id);
         res.status(200).send("Book successfully deleted!");
+    }
+
+    static findByPublisher =  async(req, res) => {
+        let publisher = req.query.publisher;
+        let book = await books.find({'Publisher': publisher});
+        res.status(200).json(book);
     }
 }
 
