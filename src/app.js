@@ -1,6 +1,5 @@
 import Express from "express";
 import database from "./config/dbConnect.js";
-import books from "./models/Book.js";
 import routes from "./routes/index.js";
 
 database.on('error', console.log.bind(console, 'Error na conexão!'));
