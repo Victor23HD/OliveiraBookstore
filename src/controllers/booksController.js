@@ -3,7 +3,8 @@ import books from "../models/Book.js";
 class BookController {
 
     static listBooks = async (_, res) => {
-        let book = await books.find();
+        let book = await books.find()
+        .populate('Author');
         res.status(200).json(book);
     }
 
