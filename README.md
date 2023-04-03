@@ -3,13 +3,13 @@
 Esse projeto de estudo tem como objetivo a demonstração dos meus conhecimentos de Express e MongoDB Atlas. As proximas versões terão aprimoramentos como das rotas, banco de dados, controllers dentre outras coisas.
 
 ## Instalação
-Após a instalação do projeto, conecte o mongoose uma coleção do MongoDB Atlas.
+Após a instalação do projeto, conecte o mongoose a uma coleção do MongoDB Atlas.
 ```console
 npm install
 ```
 
 ## Conexão do MongoDB Atlas
-No arquivo **./src/config/dbConnect.js** substitua a string de conexão da função `mongoose.connect()` por um banco de dados criado no *https://www.mongodb.com/*, caso tenha algum problema siga as instruções do vídeo abaixo.
+Crie um arquivo .env no **./src** crie uma variável MONGO_URL e passe uma string de conexão MongoDB Atlas, caso tenha alguma dúvida siga o vídeo abaixo.
 
 > https://www.youtube.com/watch?v=4nO0BERnkc0
 
