@@ -8,6 +8,9 @@ const bookSchema = new mongoose.Schema(
     Publisher: {type: String, require: true},
     NumberPages: {type: Number, require: true},
     RealeseDate: {type: String, require: true}
+},
+{
+    versionKey: false
 });
 
 const books = mongoose.model('books', bookSchema);

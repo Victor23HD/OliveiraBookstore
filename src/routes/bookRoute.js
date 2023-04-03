@@ -10,5 +10,4 @@ bookRouter
     .put('/books/:id',BookController.updateBook)
     .delete('/books/:id', BookController.deleteBook);
 
-
 export default bookRouter;

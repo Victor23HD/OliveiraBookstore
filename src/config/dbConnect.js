@@ -1,7 +1,10 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-mongoose.connect("mongodb+srv://OliveiraBookstore:12345@oliveirabookstore.qfwi63d.mongodb.net/oliveirabookstore-node");
+dotenv.config();
 
-let database = mongoose.connection;
+mongoose.connect(process.env.MONGO_URL);
+
+const database = mongoose.connection;
 
 export default database;

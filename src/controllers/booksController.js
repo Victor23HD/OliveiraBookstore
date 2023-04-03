@@ -3,19 +3,19 @@ import books from "../models/Book.js";
 class BookController {
 
     static listBooks = async (_, res) => {
-        let book = await books.find()
+        const book = await books.find()
         .populate('Author');
         res.status(200).json(book);
     }
 
     static registerBook = async(req, res) => {
-        let book = new books(req.body);
+        const book = new books(req.body);
         await book.save();
         res.status(200).send("Successfully created book!");   
     }
 
     static updateBook = async(req, res) => {
-        let id = req.params.id;
+        const id = req.params.id;
         await books.findByIdAndUpdate(id, {$set: req.body});
         res.status(200).send("Successfully updated book!");
     }
@@ -27,8 +27,8 @@ class BookController {
     }
 
     static findByPublisher =  async(req, res) => {
-        let publisher = req.query.publisher;
-        let book = await books.find({'Publisher': publisher});
+        const publisher = req.query.publisher;
+        const book = await books.find({'Publisher': publisher});
         res.status(200).json(book);
     }
 }

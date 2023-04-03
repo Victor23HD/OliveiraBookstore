@@ -8,19 +8,19 @@ class authorControllers
     }
 
     static registerAuthor = async(req, res) => {
-        let author = new authors(req.body);
+        const author = new authors(req.body);
         await author.save();
         res.status(200).send("Author successfully registered!");
     }
 
     static updateAuthor = async(req, res) => {
-        let id = req.params.id;
+        const id = req.params.id;
         await authors.findByIdAndUpdate(id, {$set: req.body});
         res.status(200).send("Author updated successfully!");
     }
 
     static deleteAuthor = async(req, res) => {
-        let id = req.params.id;
+        const id = req.params.id;
         await authors.findOneAndDelete(id);
         res.status(200).send("Author deleted successfully!");
     } 
