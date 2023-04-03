@@ -1,4 +1,4 @@
-# Oliveira Bookstore
+# OliveiraBookstore-v1.0-Snowball
  
 Esse projeto de estudo tem como objetivo a demonstração dos meus conhecimentos de Express e MongoDB Atlas. As proximas versões terão aprimoramentos como das rotas, banco de dados, controllers dentre outras coisas.
 
