@@ -101,6 +101,7 @@ Esse projeto foi desenvolvido com o objetivo de entender como utilizar o MongoDB
 
 ## Tecnologias Utilizadas
 * Node.js
+* API Rest
 * Express fremework
 * MongoDB Atlas / Mongoose
 * Postman
