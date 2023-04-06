@@ -23,6 +23,6 @@ const authorControllers = {
         await authors.findOneAndDelete(id);
         res.status(200).send("Author deleted successfully!");
     } 
-}
+};
 
 export default authorControllers;

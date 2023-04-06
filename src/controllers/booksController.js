@@ -3,13 +3,13 @@ import books from "../models/Book.js";
 const booksController = {
 
     listBooks: async(_, res) => {
-        const book = await books.find().populate('Author');
+        const book = await books.find().populate("Author");
         res.status(200).json(book);
     },
 
     findByPublisher: async(req, res) => {
-        const book = await books.find({ 'Publisher': req.query.publisher })
-        .populate('Author');
+        const book = await books.find({ "Publisher": req.query.publisher })
+            .populate("Author");
         res.status(200).json(book);
     },
     
@@ -30,6 +30,6 @@ const booksController = {
         await books.findByIdAndDelete(id);
         res.status(200).send("Book successfully deleted!");
     }
-}
+};
 
 export default booksController;
