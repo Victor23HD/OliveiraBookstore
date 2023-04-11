@@ -36,7 +36,7 @@ const booksController =
         }
         catch (err)
         {
-            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
         }
     },
 
@@ -52,7 +52,7 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
         }
         
     },
@@ -69,7 +69,7 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to update the book(${req.params.id})!\nERROR:${err}`});
+            return res.status(500).json({ Message: `Failed to update the book / ${req.params.id}`, Error: `${err}`});
         }        
     },
 
@@ -85,7 +85,7 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to delete the book(${req.params.id})!\nERROR:${err}`});
+            return res.status(500).json({ Message: `Failed to delete the book / ${req.params.id}`, Error: `${err}`});
         }
         
     }

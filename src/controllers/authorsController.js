@@ -14,7 +14,7 @@ const authorControllers =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
         }
     },
 
@@ -30,7 +30,7 @@ const authorControllers =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
         }
     },
 
@@ -46,7 +46,7 @@ const authorControllers =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to update the author(${req.params.id})!\nERROR:${err}`});
+            return res.status(500).json({ Message: `Failed to update the author / ${req.params.id}`, Error: `${err}`});
         }
         
     },
@@ -63,7 +63,7 @@ const authorControllers =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to delete the author(${req.params.id})!\nERROR:${err}`});
+            return res.status(500).json({ Message: `Failed to delete the author / ${req.params.id}`, Error: `${err}`});
         }
         
     } 
