@@ -5,7 +5,7 @@ import bookRouter from "./bookRoute.js";
 
 const routes =  (app) =>
 {
-    app.route('/').get((req, res) => {
+    app.route("/").get((req, res) => {
         res.status(200).send("Livraria Oliveira!");
     });
 
@@ -14,6 +14,6 @@ const routes =  (app) =>
         bookRouter,
         authorRouter
     );
-}
+};
 
 export default routes;

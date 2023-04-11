@@ -12,6 +12,7 @@
   "author": "Victor Oliveira",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.37.0",
     "nodemon": "^2.0.21"
   },
   "dependencies": {
