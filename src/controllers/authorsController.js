@@ -1,27 +1,71 @@
 import authors from "../models/Author.js";
 
-const authorControllers = {
+const authorControllers = 
+{
 
-    listAuthor: async(_, res) =>{
-        res.status(200).json(await authors.find());
+    // http://localhost:3000/authors - GET
+    listAuthor: async(_, res) =>
+    {
+        try
+        {
+            const author = await authors.find();
+            
+            return res.status(200).json(author);
+        }
+        catch(err)
+        {
+            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+        }
     },
 
-    registerAuthor: async(req, res) => {
-        const author = new authors(req.body);
-        await author.save();
-        res.status(200).send("Author successfully registered!");
+    // http://localhost:3000/authors - POST
+    registerAuthor: async(req, res) => 
+    {
+        try
+        {
+            const author = new authors(req.body);
+            await author.save();
+    
+            return res.status(200).send("Author successfully registered!");
+        }
+        catch(err)
+        {
+            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+        }
     },
 
-    updateAuthor: async(req, res) => {
-        const id = req.params.id;
-        await authors.findByIdAndUpdate(id, {$set: req.body});
-        res.status(200).send("Author updated successfully!");
+    // http://localhost:3000/authors/:id - PUT
+    updateAuthor: async(req, res) => 
+    {
+        try
+        {
+            const id = req.params.id;
+            await authors.findByIdAndUpdate(id, {$set: req.body});
+
+            return res.status(200).send("Author updated successfully!");
+        }
+        catch(err)
+        {
+            return res.status(500).json({ Message: `Failed to update the author(${req.params.id})!\nERROR:${err}`});
+        }
+        
     },
 
-    deleteAuthor: async(req, res) => {
-        const id = req.params.id;
-        await authors.findOneAndDelete(id);
-        res.status(200).send("Author deleted successfully!");
+    // http://localhost:3000/books/:id - DELETE
+    deleteAuthor: async(req, res) => 
+    {
+        try
+        {
+            const id = req.params.id;
+            await authors.findOneAndDelete(id);
+
+            return res.status(200).send("Author deleted successfully!");
+        }
+        catch(err)
+        {
+            return res.status(500).json({ Message: `Failed to delete the author(${req.params.id})!\nERROR:${err}`});
+        }
+        
     } 
 };
 
