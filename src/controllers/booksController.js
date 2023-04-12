@@ -14,7 +14,7 @@ const booksController =
         } 
         catch (err)
         {
-            return res.status(500).json({ Message: `there was an internal error on the server\nERROR:${err}`});
+            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
         }
     },
 

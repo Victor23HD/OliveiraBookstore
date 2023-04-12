@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import authors from "../models/Author.js";
 
 const authorControllers = 
@@ -15,6 +16,36 @@ const authorControllers =
         catch(err)
         {
             return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
+        }
+    },
+
+    // http://localhost:3000/authors/:id - GET
+    listAuthorById: async(req, res)=>
+    {
+        try
+        {
+            const id = req.params.id;
+            const author = await authors.findById(id);
+
+            if(author !== null)
+            {
+                return res.status(200).json(author);
+            }
+            else
+            {
+                return res.status(404).send({Message: "Id of author not found!"});
+            }
+        }
+        catch(err)
+        {
+            if(err instanceof mongoose.Error.CastError)
+            {
+                return res.status(400).send({Message: "One or more of the data provided is incorrect!"});
+            }
+            else
+            {
+                return res.status(500).send({Message: "Erro interno do servidor!"});
+            }
         }
     },
 
