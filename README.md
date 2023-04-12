@@ -79,6 +79,11 @@ Após executar o script `npm run dev` abra o *Postman* e teste as rotas abaixo!
       <td> { authorsController.js > async listAuthor() } <br> Lista todos os autores da coleção. </td>	    
     </tr>
     <tr>
+      <td> GET </td>
+      <td> http://localhost:3000/authors/:id </td>
+      <td> { authorsController.js > async listAuthorById() } <br> Lista o author do "/id" passado na URL. </td>	    
+    </tr>
+    <tr>
       <td> POST </td>
       <td> http://localhost:3000/authors </td>
       <td> { authorsController.js > registerAuthor() } <br> Registra o autor passado no body utilizando a Model.authors como base. </td>	    
