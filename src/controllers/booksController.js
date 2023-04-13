@@ -4,7 +4,7 @@ const booksController =
 {
 
     // http://localhost:3000/books - GET
-    listBooks: async (_, res) => 
+    listBooks: async (_, res, next) => 
     {
         try 
         {
@@ -14,12 +14,12 @@ const booksController =
         } 
         catch (err)
         {
-            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
+            return next(err);
         }
     },
 
     // http://localhost:3000/books/find?publisher=publisherName - GET
-    findByPublisher: async (req, res) => 
+    findByPublisher: async (req, res, next) => 
     {
         try
         {
@@ -36,12 +36,12 @@ const booksController =
         }
         catch (err)
         {
-            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
+            return next(err);
         }
     },
 
     // http://localhost:3000/books - POST
-    registerBook: async (req, res) => 
+    registerBook: async (req, res, next) => 
     {
         try
         {
@@ -52,13 +52,13 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: "there was an internal error on the server", Error: `${err}`});
+            return next(err);
         }
         
     },
 
     // http://localhost:3000/books/:id - PUT
-    updateBook: async (req, res) => 
+    updateBook: async (req, res, next) => 
     {
         try
         {
@@ -69,12 +69,12 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to update the book / ${req.params.id}`, Error: `${err}`});
+            return next(err);
         }        
     },
 
     //	http://localhost:3000/books/:id - DELETE
-    deleteBook: async (req, res) => 
+    deleteBook: async (req, res, next) => 
     {
         try
         {
@@ -85,7 +85,7 @@ const booksController =
         }
         catch(err)
         {
-            return res.status(500).json({ Message: `Failed to delete the book / ${req.params.id}`, Error: `${err}`});
+            return next(err);
         }
         
     }
