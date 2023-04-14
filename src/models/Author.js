@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 const author = new mongoose.Schema(
     {
         Id: {type: String},
-        Name: {type: String, require: true},
-        Nationality: {type: String, require: true}
+        Name: {type: String, required: true},
+        Nationality: {type: String, required: true}
     },
     {
         versionKey: false,
