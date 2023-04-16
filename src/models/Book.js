@@ -30,7 +30,7 @@ const bookSchema = new mongoose.Schema(
             minLength: [10,"RealeseDate: minimum length of 10 characters"],
             maxLength: [20, "RealeseDate: maximum length of 20 characters"],
             required: [true, "The RealeseDate field is required!"],
-        },    
+        }, 
     },
     {
         versionKey: false

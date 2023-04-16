@@ -4,13 +4,28 @@ const booksController =
 {
 
     // http://localhost:3000/books - GET
-    listBooks: async (_, res, next) => 
+    listBooks: async (req, res, next) => 
     {
         try 
-        {
-            const book = await books.find().populate("Author");
+        {   
+
+            let page = parseInt(req.query.page);
+            const book = await books.find()
+                .sort({ Title : 1 })
+                .skip((page - 1) * 5)
+                .limit(5)
+                .populate("Author");
             
-            return res.status(200).json(book);
+            if(book != null)
+            {
+                return res.status(200).json(book);
+            }
+            else
+            {
+                return res.status(200).send("No more books to be exhibited!");
+            }
+            
+            
         } 
         catch (err)
         {
