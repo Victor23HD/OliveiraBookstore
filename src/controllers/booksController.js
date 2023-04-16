@@ -53,8 +53,7 @@ const booksController =
         catch(err)
         {
             return next(err);
-        }
-        
+        }  
     },
 
     // http://localhost:3000/books/:id - PUT
@@ -86,8 +85,7 @@ const booksController =
         catch(err)
         {
             return next(err);
-        }
-        
+        }    
     }
 };
 

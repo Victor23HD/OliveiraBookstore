@@ -10,11 +10,14 @@ function errorHandler(err, req, res, next)
     }
     else if (err instanceof mongoose.Error.ValidationError)
     {
-        return res.status(400).send({Message: "There was a data validation error!"});
+        const stringErr = Object.values(err.errors).map(erro => erro.message).join(";");
+        
+        return res.status(400).send({Message: "There was a data validation error!",
+            Error: stringErr.split(";") /*Array*/ });
     }
     else
     {
-        return res.status(500).send({Message: "Erro interno do servidor!"});
+        return res.status(500).send({Message: "Internal server error!"});
     }
 }
 
