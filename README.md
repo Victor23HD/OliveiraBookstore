@@ -1,6 +1,25 @@
-# OliveiraBookstore-v1.0-Snowball
+# OliveiraBookstore / v2.0(BigBrother)
  
-Esse projeto de estudo tem como objetivo a demonstração dos meus conhecimentos de Express e MongoDB Atlas. As proximas versões terão aprimoramentos como das rotas, banco de dados, controllers dentre outras coisas.
+Esse projeto de estudo tem como objetivo a demonstração dos meus conhecimentos de Express e MongoDB Atlas. As próximas versões terão uma interface aprimorada para o usuário final.
+
+## Novidades da versão *BigBrother*
+
+### @_Controllers_utilizando_boas_praticas!
+Ao estudar documentações, compreendi que, embora não seja tecnicamente incorreto, o uso de classes em JavaScript não é considerado uma boa prática. É recomendável evitar o uso de classes e adotar a abordagem mais tradicional de protótipos para a definição de objetos.
+
+### @_Adicionando_resiliência_na_API
+Na versão Snowball, criei todas as contas utilizando o Path to Success. Na segunda versão, aprimorei o feedback para o usuário em caso de erros, incluindo tratamento de erros simples, como o retorno de um livro não encontrado.
+
+### @_Middleware_de_erro
+No início do meu trabalho de tratamento de erros, eu percebi que poderia tratar erros de tipos que ocorrem em 2 modelos diferentes, reutilizando o código e, ao mesmo tempo, mantendo o código limpo e organizado.
+
+### @_Validação_de_dados
+No início dos meus testes com banco de dados, percebi que era possível registrar livros ou autores passando um JSON completamente vazio. A partir desse momento, comecei a trabalhar na validação de dados para garantir que apenas informações relevantes e válidas fossem registradas no banco de dados.
+
+### @_Implementação_de_paginação
+Ao pensar na experiência do usuário, comecei a considerar o padrão de visualização de produtos utilizado pelo mercado. Realizei estudos e iniciei o trabalho para tornar a experiência dos usuários da Livraria Oliveira mais familiar e agradável.
+
+<hr>
 
 ## Instalação
 Após a instalação do projeto, conecte o mongoose a uma coleção do MongoDB Atlas.
@@ -107,6 +126,7 @@ Esse projeto foi desenvolvido com o objetivo de entender como utilizar o MongoDB
 ## Tecnologias Utilizadas
 * Node.js
 * API Rest
+* Middleware de erros
 * Express fremework
 * MongoDB Atlas / Mongoose
 * Postman
