@@ -4,7 +4,7 @@ import booksController from "../controllers/booksController.js";
 const bookRouter = Express.Router();
 
 bookRouter
-    .get("/books", booksController.listBooks)
+    .get("/books/", booksController.listBooks)
     .get("/books/find", booksController.findByPublisher)
     .post("/books", booksController.registerBook)
     .put("/books/:id", booksController.updateBook)
