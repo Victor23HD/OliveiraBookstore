@@ -1,3 +1,4 @@
+import errorHandler from "./middlewares/errorHandler.js";
 import Express from "express";
 import database from "./config/dbConnect.js";
 import routes from "./routes/index.js";
@@ -8,9 +9,12 @@ database.once("open", () => {
 });
 
 const app = Express();
-
-app.use(Express.json());
+app.use(Express.json()); 
 
 routes(app);
+app.use(errorHandler);
+
+
+
 
 export default app;
