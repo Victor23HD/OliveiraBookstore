@@ -8,6 +8,6 @@ authorRouter
     .get("/authors/:id", authorControllers.listAuthorById)
     .post("/authors", authorControllers.registerAuthor)
     .put("/authors/:id", authorControllers.updateAuthor)
-    .delete("/authors/:id", authorControllers.updateAuthor);
+    .delete("/authors/:id", authorControllers.deleteAuthor);
 
 export default authorRouter;
